@@ -20,6 +20,17 @@ builder.Services.AddDbContext<FoodAppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("FoodAppConnectionString"))
 );
 
+//add CORS policy to allow any origin, method, and header
+builder.Services.AddCors( options =>
+{
+    options.AddPolicy( "CustomCorsPolicy" , corsPolicyBuilder =>
+    {
+        corsPolicyBuilder.AllowAnyOrigin( )
+            .AllowAnyMethod( )
+            .AllowAnyHeader( );
+    } );
+} );
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -32,7 +43,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
-
+app.UseCors("CustomCorsPolicy");
 app.MapControllers();
 
 app.Run();
