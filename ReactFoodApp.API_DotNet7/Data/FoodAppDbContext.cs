@@ -6,14 +6,16 @@ namespace ReactFoodApp.API_DotNet7.Data;
 public class FoodAppDbContext : DbContext
 {
     public FoodAppDbContext(DbContextOptions<FoodAppDbContext> dbContextOptions)
-        : base(dbContextOptions) { }
+        : base(dbContextOptions)
+    {
+    }
 
     public DbSet<Meal> Meals { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
-        
+
         // seed data to Meal Table
         var meals = new List<Meal>
         {

@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
 using ReactFoodApp.API_DotNet7.Data;
 using ReactFoodApp.API_DotNet7.Mappings;
+using ReactFoodApp.API_DotNet7.Models.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,17 +21,19 @@ builder.Services.AddAutoMapper(typeof(AutoMapperProfiles));
 builder.Services.AddDbContext<FoodAppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("FoodAppConnectionString"))
 );
+//add MealRepository to services collection
+builder.Services.AddScoped<IMealRepository, SqlMealRepository>();
 
 //add CORS policy to allow any origin, method, and header
-builder.Services.AddCors( options =>
+builder.Services.AddCors(options =>
 {
-    options.AddPolicy( "CustomCorsPolicy" , corsPolicyBuilder =>
+    options.AddPolicy("CustomCorsPolicy", corsPolicyBuilder =>
     {
-        corsPolicyBuilder.AllowAnyOrigin( )
-            .AllowAnyMethod( )
-            .AllowAnyHeader( );
-    } );
-} );
+        corsPolicyBuilder.AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader();
+    });
+});
 
 var app = builder.Build();
 

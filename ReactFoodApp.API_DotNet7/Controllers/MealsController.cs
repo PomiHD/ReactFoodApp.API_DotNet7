@@ -1,8 +1,6 @@
 ﻿using Microsoft.AspNetCore.Cors;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using ReactFoodApp.API_DotNet7.Data;
+using ReactFoodApp.API_DotNet7.Models.Repositories;
 
 namespace ReactFoodApp.API_DotNet7.Controllers
 {
@@ -11,11 +9,11 @@ namespace ReactFoodApp.API_DotNet7.Controllers
     [EnableCors("CustomCorsPolicy")]
     public class MealsController : ControllerBase
     {
-        private readonly FoodAppDbContext _foodAppDbContext;
+        private readonly IMealRepository _mealRepository;
 
-        public MealsController(FoodAppDbContext foodAppDbContext)
+        public MealsController(IMealRepository mealRepository)
         {
-            _foodAppDbContext = foodAppDbContext;
+            _mealRepository = mealRepository;
         }
 
         // get all meals
@@ -23,7 +21,7 @@ namespace ReactFoodApp.API_DotNet7.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var mealsDomainModel = await _foodAppDbContext.Meals.ToListAsync();
+            var mealsDomainModel = await _mealRepository.GetAllAsync();
 
             return Ok(mealsDomainModel);
         }
