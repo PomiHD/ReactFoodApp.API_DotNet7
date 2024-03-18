@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Cors;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
+using ReactFoodApp.API_DotNet7.Models.Dtos;
 using ReactFoodApp.API_DotNet7.Models.Repositories;
 
 namespace ReactFoodApp.API_DotNet7.Controllers
@@ -9,11 +11,13 @@ namespace ReactFoodApp.API_DotNet7.Controllers
     [EnableCors("CustomCorsPolicy")]
     public class MealsController : ControllerBase
     {
+        private readonly IMapper _mapper;
         private readonly IMealRepository _mealRepository;
 
-        public MealsController(IMealRepository mealRepository)
+        public MealsController(IMealRepository mealRepository, IMapper mapper)
         {
             _mealRepository = mealRepository;
+            _mapper = mapper;
         }
 
         // get all meals
@@ -22,8 +26,10 @@ namespace ReactFoodApp.API_DotNet7.Controllers
         public async Task<IActionResult> GetAll()
         {
             var mealsDomainModel = await _mealRepository.GetAllAsync();
+            // map domain model to DTO
+            var mealsDto = _mapper.Map<List<MealDto>>(mealsDomainModel);
 
-            return Ok(mealsDomainModel);
+            return Ok(mealsDto);
         }
     }
 }
