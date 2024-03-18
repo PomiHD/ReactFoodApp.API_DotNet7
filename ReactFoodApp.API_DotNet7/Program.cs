@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.FileProviders;
 using ReactFoodApp.API_DotNet7.Data;
 using ReactFoodApp.API_DotNet7.Mappings;
 
@@ -44,6 +45,16 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 app.UseCors("CustomCorsPolicy");
+// add static files middleware to the pipeline
+app.UseStaticFiles(
+    new StaticFileOptions
+    {
+        FileProvider = new PhysicalFileProvider(
+            Path.Combine(app.Environment.ContentRootPath, "Images")
+        ),
+        RequestPath = "/Images"
+    }
+);
 app.MapControllers();
 
 app.Run();
