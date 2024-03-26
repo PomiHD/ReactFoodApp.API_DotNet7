@@ -112,11 +112,11 @@ public class FoodAppDbContext : DbContext
             new Meal
             {
                 Id = Guid.Parse("0b741c80-d3d4-4045-9077-55f5394c6a3c"),
-                Name = "SeaMeal Paella",
+                Name = "Seafood Paella",
                 Price = "19.99",
                 Description =
                     "A Spanish delicacy filled with saffron-infused rice, shrimp, mussels, and chorizo.",
-                Image = "images/seaMeal-paella.jpg"
+                Image = "images/seafood-paella.jpg"
             },
             new Meal
             {

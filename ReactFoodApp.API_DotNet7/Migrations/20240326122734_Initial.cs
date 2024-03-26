@@ -34,7 +34,7 @@ namespace ReactFoodApp.API_DotNet7.Migrations
                 values: new object[,]
                 {
                     { new Guid("03cb137b-b7c1-43d3-8a23-7c55a48a252c"), "Romaine lettuce tossed in Caesar dressing, topped with croutons and parmesan shavings.", "images/caesar-salad.jpg", "Caesar Salad", "7.99" },
-                    { new Guid("0b741c80-d3d4-4045-9077-55f5394c6a3c"), "A Spanish delicacy filled with saffron-infused rice, shrimp, mussels, and chorizo.", "images/seaMeal-paella.jpg", "SeaMeal Paella", "19.99" },
+                    { new Guid("0b741c80-d3d4-4045-9077-55f5394c6a3c"), "A Spanish delicacy filled with saffron-infused rice, shrimp, mussels, and chorizo.", "images/seafood-paella.jpg", "Seafood Paella", "19.99" },
                     { new Guid("1708bc09-58dc-49ff-9332-9edf55fc9a2a"), "Creamy Arborio rice cooked with a medley of wild mushrooms and finished with parmesan.", "images/mushroom-risotto.jpg", "Mushroom Risotto", "13.99" },
                     { new Guid("2a24410e-72f7-4a4d-8aef-c743837bda26"), "Fluffy pancakes stacked high, drizzled with maple syrup and topped with fresh berries.", "images/pancake-stack.jpg", "Pancake Stack", "8.99" },
                     { new Guid("44d360e7-5b38-4342-b1a4-614e59817a92"), "An assortment of fresh sushi rolls including California, Spicy Tuna, and Eel Avocado.", "images/sushi-roll-platter.jpg", "Sushi Roll Platter", "15.99" },

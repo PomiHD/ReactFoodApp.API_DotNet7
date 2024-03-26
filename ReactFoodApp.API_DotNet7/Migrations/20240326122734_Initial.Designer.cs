@@ -12,7 +12,7 @@ using ReactFoodApp.API_DotNet7.Data;
 namespace ReactFoodApp.API_DotNet7.Migrations
 {
     [DbContext(typeof(FoodAppDbContext))]
-    [Migration("20240315100644_Initial")]
+    [Migration("20240326122734_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -136,8 +136,8 @@ namespace ReactFoodApp.API_DotNet7.Migrations
                         {
                             Id = new Guid("0b741c80-d3d4-4045-9077-55f5394c6a3c"),
                             Description = "A Spanish delicacy filled with saffron-infused rice, shrimp, mussels, and chorizo.",
-                            Image = "images/seaMeal-paella.jpg",
-                            Name = "SeaMeal Paella",
+                            Image = "images/seafood-paella.jpg",
+                            Name = "Seafood Paella",
                             Price = "19.99"
                         },
                         new

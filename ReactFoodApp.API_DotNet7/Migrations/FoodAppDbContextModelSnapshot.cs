@@ -133,8 +133,8 @@ namespace ReactFoodApp.API_DotNet7.Migrations
                         {
                             Id = new Guid("0b741c80-d3d4-4045-9077-55f5394c6a3c"),
                             Description = "A Spanish delicacy filled with saffron-infused rice, shrimp, mussels, and chorizo.",
-                            Image = "images/seaMeal-paella.jpg",
-                            Name = "SeaMeal Paella",
+                            Image = "images/seafood-paella.jpg",
+                            Name = "Seafood Paella",
                             Price = "19.99"
                         },
                         new
