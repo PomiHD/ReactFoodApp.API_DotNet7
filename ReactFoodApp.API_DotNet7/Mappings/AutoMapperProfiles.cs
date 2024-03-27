@@ -9,6 +9,9 @@ namespace ReactFoodApp.API_DotNet7.Mappings
         public AutoMapperProfiles()
         {
             CreateMap<Meal, MealDto>().ReverseMap();
+            CreateMap<CreateOrderDto, Order>();
+            CreateMap<CreateItemDto, Item>();
+            CreateMap<CreateCustomerDto, Customer>();
         }
     }
 }
