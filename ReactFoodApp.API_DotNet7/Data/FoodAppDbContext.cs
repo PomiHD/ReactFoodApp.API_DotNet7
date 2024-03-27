@@ -6,11 +6,12 @@ namespace ReactFoodApp.API_DotNet7.Data;
 public class FoodAppDbContext : DbContext
 {
     public FoodAppDbContext(DbContextOptions<FoodAppDbContext> dbContextOptions)
-        : base(dbContextOptions)
-    {
-    }
+        : base(dbContextOptions) { }
 
     public DbSet<Meal> Meals { get; set; }
+    public DbSet<Order> Orders { get; set; }
+    public DbSet<Customer> Customers { get; set; } 
+    public DbSet<Item> Items { get; set; } 
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -201,5 +202,11 @@ public class FoodAppDbContext : DbContext
             }
         };
         modelBuilder.Entity<Meal>().HasData(meals);
+        
+        modelBuilder.Entity<Order>()
+            .HasMany(o => o.Items) // Specifies that an Order has many Items
+            .WithOne() // Assuming Item does not have a navigation property back to Order; 
+            .OnDelete(DeleteBehavior.Cascade); // Optional: Cascades delete operations
+        
     }
 }
