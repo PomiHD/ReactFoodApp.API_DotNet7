@@ -23,6 +23,8 @@ builder.Services.AddDbContext<FoodAppDbContext>(options =>
 );
 //add MealRepository to services collection
 builder.Services.AddScoped<IMealRepository, SqlMealRepository>();
+//add OrderRepository to services collection
+builder.Services.AddScoped<IOrderRepository, SqlOrderRepository>();
 
 //add CORS policy to allow any origin, method, and header
 builder.Services.AddCors(options =>
