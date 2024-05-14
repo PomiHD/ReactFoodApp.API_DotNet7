@@ -1,6 +1,8 @@
 # ReactFoodApp.API_DotNet7
 
 This project is an API developed with .NET 7, designed to provide meal information and place orders, showcasing the use of .NET technologies for building RESTful services.
+## Demo
+![Demo Image](ReactFoodApp.API_DotNet7/Demo/demo1.jpeg)
 
 ## Features
 
